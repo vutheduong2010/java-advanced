@@ -9,11 +9,13 @@ public class Program {
                department.setName("Giám đốc");
                session.persist(department);
            });
+
             factory.inTransaction(session -> {
                 var department = new Department();
                 department.setName("Bảo vệ");
                 session.persist(department);
             });
+
             factory.inSession(session -> {
                 // hibernate query language
                 var hql = "FROM Department";
